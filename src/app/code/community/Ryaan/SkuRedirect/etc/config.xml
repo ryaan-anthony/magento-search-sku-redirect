@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ryaan_SkuRedirect>
+            <version>1.0.0</version>
+        </Ryaan_SkuRedirect>
+    </modules>
+    <global>
+        <models>
+            <skuredirect>
+                <class>Ryaan_SkuRedirect_Model</class>
+            </skuredirect>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch_catalogsearch_result_index>
+                <observers>
+                    <handle_sku_search_redirect>
+                        <type>model</type>
+                        <class>skuredirect/observer</class>
+                        <method>handleSkuSearchRedirect</method>
+                    </handle_sku_search_redirect>
+                </observers>
+            </controller_action_predispatch_catalogsearch_result_index>
+        </events>
+    </frontend>
+</config>
